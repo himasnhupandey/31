@@ -1,0 +1,67 @@
+/* General Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #fff7e6, #ffb3ba);
+    font-family: Arial, sans-serif;
+}
+
+/* Instruction Text Styling */
+.instruction {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Flower Container */
+.flower {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Petal Design */
+.petal {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(to bottom, #ff6f61, #ffcccb);
+    border-radius: 50%;
+    transform-origin: bottom center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Rotate Petals Around Center */
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-80px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-80px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-80px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-80px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-80px); }
+
+/* Petal Hover Effect */
+.petal:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Box Styling */
+#message-box {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #444;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

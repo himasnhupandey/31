@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Cutiepie</title>
+    <style>
+        /* General Body Styling */
+        body {
+            background-image: url("hug.webp");
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-size: cover; 
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #444;
+            text-align: center;
+        }
+
+        /* Instruction Text Styling */
+        .instruction {
+            font-size: 1.8rem;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container for Interactive Items */
+        .interactive-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 600px;
+        }
+
+        /* Styling for Each Item */
+        .item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Gift Styling */
+        .item.gift {
+            background-image: url('gift.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 110px;
+            height: 110px;
+        }
+
+        /* Heart Styling */
+        .item.heart {
+            background-image: url('heart.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 110px;
+            height: 110px;
+        }
+
+        /* Hover Effect */
+        .item:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Message Box Styling */
+        #message-box {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        /* Audio Button Styling */
+        .audio-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #ff6f91;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .audio-btn:hover {
+            background-color: #ff4f72;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .instruction {
+                font-size: 1.5rem;
+            }
+
+            .interactive-items {
+                gap: 15px;
+            }
+
+            .item {
+                width: 80px;
+                height: 80px;
+            }
+
+            #message-box {
+                font-size: 1rem;
+            }
+
+            .audio-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="interactive-items">
+        <div class="item gift" data-message="hello pyari janeman idk again kya kahu lol par isliye nhi ki kuch nhi kehne ko but isliye ki.....kafi kuch hai. or tum jitni amazing ho uske liye to words kam pad jaye par bate nhi khatm hongi.....filhal ke liye HAPPY NEW YEAR  my love and thannks for being in this beautiful journey with me i hope hum aage bhi sath rahe....." data-gif="giphy.webp" data-audio="1.m4a"></div>
+        <div class="item heart" data-message="oho beautiful billu ji aapki aakho ne is msg ko dekha to ye bhi aapke jaise beautiful ho gya just like.....my life hehe ever since i been with you me sach me bahooooot khush hu you loved me and cared for me ...itna ki lagta tha abe ye majak to nahi kar rhi lol ....i hope ye majak na ho and ye khushi meri kabhi na jaye joki tumse hai ..i love you yar bahoot jyadda" data-gif="P3CZolxd8DeRy4g4fM.webp" data-audio="2.m4a"></div>
+        <div class="item gift" data-message="to hum sath hai or rahenge ..hai na ? bolo irl bolo ha hum sathh hai ...i hope you said that .... me tumhe kabhi khone nhi dunga or baki rahi meri bat to me nhi  ja rha kahi ....whatever comes tumhara happy tumhare pas hai hamesha...baki fights wagaira se darna nhi hai ye to part hai and we will get stronger with it ...ab sath rehne ka wada hai to sare colors dikhenge na ek dusre ke heheeheee hum hai sath hamesha" data-gif="peach-cat-cats.gif" data-audio="3.m4a"></div>
+        <div class="item heart" data-message="ok ab dekho naya saal aa rha hamara rishta or majboot hona chahiye ladai jhagde or dheeeeeeeeeer sare pyar ke sath hum badhenge aage ad i wish ki hamare sapne pure ho sath me jo bhi goals hai sab ke sab we will work on it or hum karenge ...wish you a VERY HAPPY NEW YEAR MY BABY...I LOVE YOU AND I WILL..ALWAYS ....REMEMBER THAT thik hai ....now i want you to say me happy ki hu or rahungi hamesha irl ....bolo...bola na ? ha good ^_^  bhagwan ki kripa humpe bani rahe ...i love you and mummy papa ko bhi HAPPY NEW YEAR" data-gif="cute-cat.gif" data-audio="4.m4a"></div>
+    </div>
+    <div id="message-box">Click on a box or heart!</div>
+
+    <script>
+        const items = document.querySelectorAll('.item');
+        const messageBox = document.getElementById('message-box');
+
+        items.forEach((item) => {
+            item.addEventListener('click', () => {
+                const message = item.getAttribute('data-message');
+                const gif = item.getAttribute('data-gif');
+
+                // Update the message box
+                messageBox.textContent = message;
+
+                // Display GIF (if available)
+                if (gif) {
+                    const img = document.createElement('img');
+                    img.src = gif;
+                    img.alt = message;
+                    img.style.maxWidth = '100%';
+                    img.style.marginTop = '15px';
+
+                    // Clear previous image and append new one
+                    messageBox.innerHTML = message;
+                    messageBox.appendChild(img);
+                }
+
+                // Add audio button
+                const audioFile = item.getAttribute('data-audio');
+                if (audioFile) {
+                    const audioBtn = document.createElement('button');
+                    audioBtn.textContent = "Play Audio";
+                    audioBtn.className = 'audio-btn';
+
+                    // Attach play event to the button
+                    audioBtn.addEventListener('click', () => {
+                        const audio = new Audio(audioFile);
+                        audio.play();
+                    });
+
+                    // Append the button
+                    messageBox.appendChild(audioBtn);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
